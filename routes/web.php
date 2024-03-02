@@ -22,6 +22,6 @@ Route::get('/hello', function() {
 });
 
 Route::get('/posts/{id}', function($id) {
-    ddd($id);
+    dd($id);
     return response('Post ' . $id);
 });
