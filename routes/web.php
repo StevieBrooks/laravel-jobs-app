@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/hello', function() {
-    return 'hello world';
-});
-
-Route::get('/posts/{id}', function($id) {
-    dd($id);
-    return response('Post ' . $id);
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => [
+            [
+                'title' => 'listing one',
+                'description' => 'lorem lorem lorem'
+            ],
+            [
+                'title' => 'listing two',
+                'description' => 'lorem lorem lorem'
+            ],
+            [
+                'title' => 'listing three',
+                'description' => 'lorem lorem lorem'
+            ],
+        ]
+    ]);
 });
